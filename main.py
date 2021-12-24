@@ -45,4 +45,8 @@ def main():
     bot_.polling(none_stop=True, interval=0)
 
 
+def fail_func():
+    print("pull request should be failed(on ci)")
+
+
 main()
