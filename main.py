@@ -45,4 +45,8 @@ def main():
     bot_.polling(none_stop=True, interval=0)
 
 
+def fails():
+    print("should be failed")
+
+
 main()
