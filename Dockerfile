@@ -5,7 +5,6 @@ RUN apt-get install -y  \
             python3     \
             pip
 RUN pip install -r requirements.txt
-ARG TOKEN
-ENV TELEGRAM_BOT_TOKEN=$TOKEN
+ENV TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
 ENTRYPOINT ["python3", "main.py"]
 CMD ["bash"]

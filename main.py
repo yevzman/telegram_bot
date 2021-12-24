@@ -41,7 +41,7 @@ def add_mem_handler(message):
 def main():
     """Начало работы бота"""
     random.seed(2341)
-    print('Starting...................')
+    print('Starting bot')
     bot_.polling(none_stop=True, interval=0)
 
 
