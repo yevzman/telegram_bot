@@ -10,6 +10,7 @@ on:
 
 jobs:
     test:
+        environment: CI
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@main
@@ -25,3 +26,12 @@ jobs:
         - name: Analysing the code with pylint
           run: |
               pylint -s n main.py
+        - name: update Docker image
+          if: ${{ github.event_name == 'push' || github.event.pull_request.merge }}
+          env:
+            DOCKER_USERNAME: 'yevzman'
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          run: |
+              sudo docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+              sudo docker build --tag yevzman/telegram_bot .
+              sudo docker push yevzman/telegram_bot
