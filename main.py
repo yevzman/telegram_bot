@@ -16,7 +16,7 @@ def start(message):
     bot_.send_message(message.from_user.id, text)
 
 
-@bot_.message_handler(commands=['get'], content_types=['text'])
+@bot_.message_handler(commands=['help'], content_types=['text'])
 def get_mem_handler(message):
     """Хэндлер который обрабатывает запрос /get возвращающий случайный мем"""
     print('Processing /get request')
