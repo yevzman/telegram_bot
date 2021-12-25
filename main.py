@@ -19,7 +19,7 @@ def start(message):
 @bot_.message_handler(commands=['get'], content_types=['text'])
 def get_mem_handler(message):
     """Хэндлер который обрабатывает запрос /get возвращающий случайный мем"""
-    print('Processing /get request')
+    print('Processing /get_mem request')
     random_num = random.randint(0, len(os.listdir('memes')) - 1)
     with open(f'memes/mem{random_num}.jpg', 'rb') as send_photo:
         bot_.send_photo(message.from_user.id, photo=send_photo)

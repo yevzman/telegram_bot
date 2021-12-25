@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  bot:
+    image: yevzman/telegram_bot
+    environment:
+        TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+    restart: always
+
+  watchtower:
+    image: containrrr/watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
