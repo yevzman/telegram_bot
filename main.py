@@ -38,6 +38,16 @@ def add_mem_handler(message):
         new_file.write(downloaded_file)
 
 
+@bot_.message_handler(content_types=['text'])
+def other_handler(message):
+    """Хэндлер который обрабатывает остальные случаи"""
+    print('Processing \"add new mem\" request')
+    text = 'Команда не опознана!\n' \
+           'Чтобы получить мем введите команду /get\n' \
+           'Если хотите добавить новый мем в базу данных, просто пришлите фото'
+    bot_.send_message(message.from_user.id, text)
+
+
 def main():
     """Начало работы бота"""
     random.seed(2341)
